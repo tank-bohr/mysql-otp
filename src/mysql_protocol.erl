@@ -553,9 +553,7 @@ verify_server_capabilities(Handshake, CapabilityFlags) ->
 -spec basic_capabilities(ConnectWithDB :: boolean(),
                          SetFoundRows :: boolean()) -> integer().
 basic_capabilities(ConnectWithDB, SetFoundRows) ->
-    CapabilityFlags0 = ?CLIENT_PROTOCOL_41 bor
-                       ?CLIENT_TRANSACTIONS bor
-                       ?CLIENT_SECURE_CONNECTION,
+    CapabilityFlags0 = ?CLIENT_PROTOCOL_41,
     CapabilityFlags1 = case ConnectWithDB of
                            true -> CapabilityFlags0 bor ?CLIENT_CONNECT_WITH_DB;
                            _ -> CapabilityFlags0
